@@ -2,11 +2,13 @@ package com.payhandler.asher.payhandlerspringboot.services;
 
 import java.math.BigDecimal;
 
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.payhandler.asher.payhandlerspringboot.domain.user.User;
 import com.payhandler.asher.payhandlerspringboot.domain.user.UserType;
+import com.payhandler.asher.payhandlerspringboot.dtos.UserDTO;
 import com.payhandler.asher.payhandlerspringboot.repositories.UserRepository;
 
 @Service
@@ -30,5 +32,15 @@ public class UserService {
 
     public void saveUser(User user) {
         this.repository.save(user);
+    }
+
+    public User createUser(UserDTO data) {
+        User newUser = new User(data);
+        this.saveUser(newUser);
+        return newUser;
+    }
+
+    public java.util.List<User> getAllUsers() {
+        return this.repository.findAll();
     }
 }
