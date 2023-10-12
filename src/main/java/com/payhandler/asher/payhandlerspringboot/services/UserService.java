@@ -2,7 +2,6 @@ package com.payhandler.asher.payhandlerspringboot.services;
 
 import java.math.BigDecimal;
 
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +25,6 @@ public class UserService {
     }
 
     public User findUserById(Long id) throws Exception {
-
         return this.repository.findById(id).orElseThrow(() -> new Exception("User not found."));
     }
 

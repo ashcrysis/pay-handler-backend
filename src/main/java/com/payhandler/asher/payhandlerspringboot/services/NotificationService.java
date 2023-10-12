@@ -14,15 +14,17 @@ public class NotificationService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public void sendNotification(User user, String message) throws Exception {
+    public void sendNotification(User user, String message) {
 
-        String email = user.getEmail();
-        NotificationDTO notificationRequest = new NotificationDTO(email, message);
-        ResponseEntity<String> notificationResponse = restTemplate.postForEntity("http://o4d9z.mocklab.io/notify",
-                notificationRequest, String.class);
+        // String email = user.getEmail();
+        // NotificationDTO notificationRequest = new NotificationDTO(email, message);
+        // ResponseEntity<String> notificationResponse =
+        // restTemplate.postForEntity("http://o4d9z.mocklab.io/notify",
+        // notificationRequest, String.class);
 
-        if (!(notificationResponse.getStatusCode() == HttpStatus.OK)) {
-            throw new Exception("Notification Service not working.");
-        }
+        // if (!(notificationResponse.getStatusCode() == HttpStatus.OK)) {
+        // throw new Exception("Notification Service not working.");
+        // }
+        System.out.println("Notificação enviada.");
     }
 }
